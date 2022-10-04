@@ -86,6 +86,12 @@ function Blog() {
     setPosts([...posts, post]);
   };
 
+  const onFormCancel = () => {
+    setIsModalOpen(false);
+    setTitle("");
+    setPostBody("");
+  };
+
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
@@ -157,6 +163,9 @@ function Blog() {
           title={title}
           onTitleChange={onTitleChange}
           onPostDescriptionChange={onPostDescriptionChange}
+          description={postBody}
+          onSubmit={onPostSubmit}
+          onCancel={onFormCancel}
         />
       </Modal>
     </div>

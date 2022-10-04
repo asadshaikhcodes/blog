@@ -11,15 +11,14 @@ function Post() {
     body: "",
     userId: null,
   });
-  console.log("post id", postId);
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts/" + postId)
       .then((response) => response.json())
       .then((singlePostResponse) => {
-        setPost({ ...post, ...singlePostResponse });
+        setPost((prevState) => ({ ...prevState, ...singlePostResponse }));
         console.log("single post response: ", singlePostResponse);
       });
-  }, []);
+  }, [postId]);
   return (
     <div>
       <Layout>

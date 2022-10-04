@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button,Row,Col } from "antd";
+import { Form, Input, Button, Row, Col } from "antd";
 
 function BlogPostForm({
   onTitleChange,
@@ -17,32 +17,22 @@ function BlogPostForm({
           rules={[
             {
               required: true,
-              message: "blog Title is reuired",
+              message: "post Title is required",
             },
           ]}
         >
-          <Input
-            onChange={(e) => {
-              onTitleChange(e.target.value);
-              //   form.setFieldValue(e.target.value);
-            }}
-            value={title}
-            key="blogTitleInput"
-          />
+          <Input onChange={onTitleChange} value={title} key="blogTitleInput" />
         </Form.Item>
         <Form.Item label="Post">
           <Input.TextArea
             allowClear
-            onChange={(e) => {
-              onPostDescriptionChange(e.target.value);
-              //   form.setFieldValue(e.target.value);
-            }}
+            onChange={onPostDescriptionChange}
             value={description}
             key="blogDescriptionField"
             rules={[
               {
                 required: true,
-                message: "blog Post is reuired",
+                message: "Post body is required",
               },
             ]}
           />
